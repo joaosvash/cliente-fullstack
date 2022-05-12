@@ -1,0 +1,44 @@
+<div class="row">
+    
+    {{#each clientes}}
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between align-item-center">
+                   Cliente  <a href="/clientes/edit/{{_id}}"><i class="fas fa-edit"></i></a>
+                </h4>
+                <p> Nombres:  {{nombre}} </p>
+                <p> Apellidos: {{apellido}}</p>
+                <p> Edad: {{edad}}</p>
+                <p>  Fecha de nacimiento:{{fechnac}}</p>
+                <p> Fecha de muerte: </p>
+                <p  id="current_date"></p>
+                <form action="/clientes/delete/{{_id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-danger btn-block btn-sm" type="submit">
+                    Eliminar
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="card mx-auto">
+        <div class="card-body">
+            <h1>Hola {{user.name}}</h1>
+            <p class="lead"> No hay Clientes Aun</p>
+            <a href="/cliente/add" class="btn btn-success btn-block">Registrar un Cliente</a>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
+<script language="javascript">
+date = new Date();
+year = date.getFullYear()+50;
+month = date.getMonth();
+day = date.getDate();
+for (i=1;i<=10;i++) { 
+   	document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+}
+</script>
