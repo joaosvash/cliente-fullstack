@@ -1,6 +1,6 @@
 const mongoose= require("mongoose");
 
-mongoose.connect('mongodb://localhost/chats-db-app',{
+mongoose.connect('mongodb+srv://joao:joao123@cluster0.jlk9z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
     keepAlive:true,
     useNewUrlParser:true,
     useUnifiedTopology:true,
